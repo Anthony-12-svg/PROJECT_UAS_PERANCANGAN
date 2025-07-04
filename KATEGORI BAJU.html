@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vea Baju</title>
+    <style>
+        :root {
+            --primary: #ee4d2d;
+            --secondary: #f8f1e9;
+            --dark: #333;
+            --light: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        header {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        nav {
+            margin-top: 1rem;
+        }
+        
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1rem;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #d14327;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Kategori Baju</div>
+        <nav>
+            <a href="../DASHBOARD.html">Home</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>KOLEKSI WANITA & PRIA TERBARU</h1>
+        
+        <div class="products">
+            <!-- Product 1 -->  
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/1.jpg" alt="Kemeja Pria Coklat">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Pria Coklat</h3>
+                    <div class="product-price">Rp 400.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Pria Coklat', 400000, './PRIA/1.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/1.jpg" alt="Kaos Wanita">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kaos Wanita Polos</h3>
+                    <div class="product-price">Rp 50.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kaos Wanita Polos', 50000, './WANITA/1.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/10.jpg" alt="Baju Vacation Wanita">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Baju Vacation Wanita</h3>
+                    <div class="product-price">Rp 100.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Baju Vacation Wanita', 100000, './WANITA/10.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/10.jpg" alt="Kaos Oversize">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Oversize Pria</h3>
+                    <div class="product-price">Rp 125.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Oversize Pria', 125000, './PRIA/10.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/11.jpg" alt="Kemeja Biru Pria">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Biru Pria</h3>
+                    <div class="product-price">Rp 600.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Biru Pria', 600000, './PRIA/11.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/2.jpg" alt="Wanita Cool">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Baju Cool Wanita</h3>
+                    <div class="product-price">Rp 180.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Baju Cool Wanita', 180000, './WANITA/2.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/13.jpg" alt="Jaket Kemeja">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jaket Hitam Pria</h3>
+                    <div class="product-price">Rp 700.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jaket Hitam Pria', 700000, './PRIA/13.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/14.jpg" alt="Jaket Kemeja Pria">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jaket Hitam Pria Cool</h3>
+                    <div class="product-price">Rp 1.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jaket Hitam Pria Cool', 1000000, './PRIA/14.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/3.jpg" alt="Jaket Wanita">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jaket Wanita Cool 1 Set</h3>
+                    <div class="product-price">Rp 200.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jaket Wanita Cool 1 Set', 200000, './WANITA/3.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/5.jpg" alt="Hotmama">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Pakaian Hotmama</h3>
+                    <div class="product-price">Rp 600.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Pakaian Hotmama', 600000, './WANITA/5.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 11  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/7.jpg" alt="Kemeja Waniata">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Wanita</h3>
+                    <div class="product-price">Rp 500.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Wanita', 500000, './WANITA/7.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 12  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/16.jpg" alt="Kemeja Merah">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Pria Merah</h3>
+                    <div class="product-price">Rp 700.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Pria Merah', 700000, './PRIA/16.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 13  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./WANITA/13.jpg" alt="Kaos WANITA">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kaos Wanita Hitam</h3>
+                    <div class="product-price">Rp 100.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kaos Wanita Hitam', 100000, './WANITA/13.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 14  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./PRIA/19.jpg" alt="Baju Kemeja Pria">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Kemeja Polos Pria</h3>
+                    <div class="product-price">Rp 100.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Kemeja Polos Pria', 100000, './PRIA/19.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Vea. All Rights Reserved.
+    </footer>
+    <script>
+    // Fungsi untuk menambah ke keranjang
+  function addToCart(event, name, price, image) {
+    // Dapatkan cart dari localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Cek apakah item sudah ada di keranjang
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        image: image,
+        quantity: 1
+      });
+    }
+    
+    // Simpan kembali ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Tampilkan notifikasi
+    alert(`${name} telah ditambahkan ke keranjang!`);
+    
+    // Update tombol untuk sementara
+    event.target.textContent = 'Ditambahkan ✓';
+    event.target.style.backgroundColor = '#4CAF50';
+    setTimeout(() => {
+      event.target.textContent = 'Tambah ke Keranjang';
+      event.target.style.backgroundColor = '';
+    }, 2000);
+  }
+  
+  // Update semua tombol tambah ke keranjang
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    const card = button.closest('.product-card');
+    const name = card.querySelector('.product-title').textContent;
+    const price = parseInt(card.querySelector('.product-price').textContent.replace(/\D/g, ''));
+    const image = card.querySelector('.product-image img').src;
+    
+    button.onclick = (e) => addToCart(e, name, price, image);
+  });    
+    </script>
+</body>
+</html>
