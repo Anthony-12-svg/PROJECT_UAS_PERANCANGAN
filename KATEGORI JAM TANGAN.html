@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vea Jam Tangan</title>
+    <style>
+        :root {
+            --primary: #ee4d2d;
+            --secondary: #f8f1e9;
+            --dark: #333;
+            --light: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        header {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        nav {
+            margin-top: 1rem;
+        }
+        
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1rem;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #d14327;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Kategori Jam Tangan</div>
+        <nav>
+            <a href="../DASHBOARD.html">Home</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Koleksi Jam Tangan Branded</h1>
+        
+        <div class="products">
+            <!-- Product 1 -->  
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-alexazabache-3766111.jpg" alt="Jam 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Elegan Merk Saphirre</h3>
+                    <div class="product-price">Rp 4.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Elegan Merk Saphirre', 4000000, './Jam/pexels-alexazabache-3766111.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-anthony-derosa-39577-236900.jpg" alt="Jam 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Classic Coklat</h3>
+                    <div class="product-price">Rp 2.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Classic Coklat', 2000000, 'Jam Tangan Classic Coklat')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-donaldtong94-23475.jpg" alt="Jam 3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Cool</h3>
+                    <div class="product-price">Rp 5.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Cool', 5000000, './Jam/pexels-donaldtong94-23475.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-javon-swaby-197616-2783873.jpg" alt="Jam 4">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Merk Michael Kords</h3>
+                    <div class="product-price">Rp 5.500.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Merk Michael Kords', 5500000, './Jam/pexels-javon-swaby-197616-2783873.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-jessbaileydesign-1228517.jpg" alt="Jam 5">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Classic Pink</h3>
+                    <div class="product-price">Rp 500.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Classic Pink', 500000, './Jam/pexels-jessbaileydesign-1228517.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-ksprack-2923922.jpg" alt="Jam 6">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Kerja</h3>
+                    <div class="product-price">Rp 180.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Kerja', 180000, './Jam/pexels-ksprack-2923922.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-martinpechy-2078268.jpg" alt="Jam 7">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Classic Coklat</h3>
+                    <div class="product-price">Rp 700.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Classic Coklat', 700000, './Jam/pexels-martinpechy-2078268.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-philip-lindvall-300724-1120275.jpg" alt="Jam 8">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Merek Raymond Well Geneve</h3>
+                    <div class="product-price">Rp 50.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Merek Raymond Well Geneve', 50000000, './Jam/pexels-philip-lindvall-300724-1120275.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-pixabay-262484.jpg" alt="Jam 9">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Merek Braun</h3>
+                    <div class="product-price">Rp 20.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Merek Braun', 20000000, './Jam/pexels-pixabay-262484.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-pixabay-280250.jpg" alt="Jam 10">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Maurice de Mauriac</h3>
+                    <div class="product-price">Rp 60.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Maurice de Mauriac', 60000000, './Jam/pexels-pixabay-280250.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 11  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-reafonbgates-2865977.jpg" alt="Jam 11">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Gold</h3>
+                    <div class="product-price">Rp 100.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Gold', 100000000, './Jam/pexels-reafonbgates-2865977.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 12  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-silvie-296951.jpg" alt="Jam 12">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Classic Sekolah</h3>
+                    <div class="product-price">Rp 70.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Classic Sekolah', 70000000, './Jam/pexels-silvie-296951.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 13  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-thelazyartist-1342609.jpg" alt="Jam 13">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Gold Black</h3>
+                    <div class="product-price">Rp 100.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Gold Black', 10000000, './Jam/pexels-thelazyartist-1342609.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <!-- Product 14  -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./Jam/pexels-valentinantonucci-691640.jpg" alt="Jam 13">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Jam Tangan Reguler Merek Daniel Wellingtoon</h3>
+                    <div class="product-price">Rp 10.000.000</div>
+                    <button class="add-to-cart" onclick="addToCart(event, 'Jam Tangan Reguler Merek Daniel Wellingtoon', 10000000, './Jam/pexels-valentinantonucci-691640.jpg')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Vea. All Rights Reserved.
+    </footer>
+    <script>
+        // Fungsi untuk menambah ke keranjang
+  function addToCart(event, name, price, image) {
+    // Dapatkan cart dari localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Cek apakah item sudah ada di keranjang
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        image: image,
+        quantity: 1
+      });
+    }
+    
+    // Simpan kembali ke localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Tampilkan notifikasi
+    alert(`${name} telah ditambahkan ke keranjang!`);
+    
+    // Update tombol untuk sementara
+    event.target.textContent = 'Ditambahkan ✓';
+    event.target.style.backgroundColor = '#4CAF50';
+    setTimeout(() => {
+      event.target.textContent = 'Tambah ke Keranjang';
+      event.target.style.backgroundColor = '';
+    }, 2000);
+  }
+  
+  // Update semua tombol tambah ke keranjang
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    const card = button.closest('.product-card');
+    const name = card.querySelector('.product-title').textContent;
+    const price = parseInt(card.querySelector('.product-price').textContent.replace(/\D/g, ''));
+    const image = card.querySelector('.product-image img').src;
+    
+    button.onclick = (e) => addToCart(e, name, price, image);
+  });
+    </script>
+</body>
+</html>
