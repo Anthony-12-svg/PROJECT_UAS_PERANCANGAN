@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Vea</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #a8e063, #56ab2f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 320px;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 85%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+button {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  background-color: #56ab2f;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #3d8e1e;
+}
+
+#errorMsg {
+  color: red;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.google-login:hover {
+  background-color: #f5f5f5;
+}
+
+.google-icon {
+  width: 24px;
+  margin-right: 10px;
+}
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="Section 1.png" alt="Logo Vea" class="logo">
+    <h2>Login ke Vea</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <a href="#"><button type="submit">Login</button></a>
+    </form>
+    <p id="errorMsg"></p>
+  
+<div class="google-login">
+  <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="google-icon">
+<a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F%3Fhl%3Did&followup=https%3A%2F%2Faccounts.google.com%2F%3Fhl%3Did&hl=id&ifkv=AdBytiOxppJF3HzvZWLg8H9zApiZSLL8LEopWaF3_QdoKjfv3vXZa6If_CjD9VUbvt3evf9tmK8y3A&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S941119803%3A1751211979808229"><span>Login dengan Google</span></a>
+</div>
+
+
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginForm");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const errorMsg = document.getElementById("errorMsg");
+
+  const dummyUser = {
+    username: "admin",
+    password: "1234"
+  };
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (username === "" || password === "") {
+      errorMsg.textContent = "Silakan isi semua kolom.";
+      return;
+    }
+
+    if (username === dummyUser.username && password === dummyUser.password) {
+      errorMsg.style.color = "green";
+      errorMsg.textContent = "Login berhasil! Mengarahkan...";
+
+      // Simpan status login ke localStorage
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('username', username);
+
+      setTimeout(() => {
+        window.location.href = "DASHBOARD.html";
+      }, 1000);
+    } else {
+      errorMsg.style.color = "red";
+      errorMsg.textContent = "Username atau password salah.";
+    }
+  });
+});
+
+
+  </script>
+</body>
+</html>
